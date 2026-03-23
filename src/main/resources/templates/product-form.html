@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Form</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f0f2f5; }
+        .navbar { background: #1a252f; color: white; padding: 15px 30px; font-size: 22px; font-weight: bold; }
+        .container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .card h2 { color: #1a252f; margin-bottom: 25px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 6px; color: #555; font-weight: bold; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;
+        }
+        .btn { padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
+        .btn-primary { background: #2ecc71; color: white; }
+        .btn-secondary { background: #95a5a6; color: white; margin-left: 10px; }
+    </style>
+</head>
+<body>
+<div class="navbar">📦 Product Inventory System</div>
+<div class="container">
+    <div class="card">
+        <h2 th:text="${product.id == null} ? 'Add New Product' : 'Edit Product'"></h2>
+        <form th:action="@{/products/save}" th:object="${product}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" th:field="*{name}" placeholder="Product name daalo" required/>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select th:field="*{category}">
+                    <option value="">-- Select Category --</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Food">Food</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Stationery">Stationery</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" th:field="*{description}" placeholder="Description daalo"/>
+            </div>
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input type="number" th:field="*{price}" placeholder="Price daalo" step="0.01" required/>
+            </div>
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" th:field="*{quantity}" placeholder="Quantity daalo" required/>
+            </div>
+            <div class="form-group">
+                <label>Supplier</label>
+                <input type="text" th:field="*{supplier}" placeholder="Supplier name daalo"/>
+            </div>
+            <button type="submit" class="btn btn-primary">💾 Save Product</button>
+            <a href="/products" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

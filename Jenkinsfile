@@ -20,7 +20,8 @@ pipeline {
     stages {
 
         // ─────────────────────────────────────────
-        // STAGE 1: Code GitHub se fetch karo
+        // STAGE 1: Code GitHub se fetch karlo
+	
         // ─────────────────────────────────────────
         stage('Checkout') {
             steps {

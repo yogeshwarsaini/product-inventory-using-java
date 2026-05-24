@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        // ✏️ Ye 5 values apni actual values se badlo
+        // ✏️ Ye 5 values apni actual values se badal do 
         S3_BUCKET     = 'cdk-hnb659fds-assets-678804053714-ap-south-1'
         EB_APP_NAME   = 'my-java-app'
         EB_ENV_NAME   = 'My-java-app-env'

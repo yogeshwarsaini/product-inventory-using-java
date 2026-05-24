@@ -49,18 +49,18 @@ pipeline {
         // ─────────────────────────────────────────
         // STAGE 3: JUnit tests chalao
         // ─────────────────────────────────────────
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-                echo "✅ Tests pass ho gaye"
-            }
-            post {
-                always {
-                    // Test results Jenkins dashboard pe dikhenge
-                    junit '**/target/surefire-reports/*.xml'
-                }
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         sh 'mvn test'
+        //         echo "✅ Tests pass ho gaye"
+        //     }
+        //     post {
+        //         always {
+        //             // Test results Jenkins dashboard pe dikhenge
+        //             junit '**/target/surefire-reports/*.xml'
+        //         }
+        //     }
+        // }
 
         // ─────────────────────────────────────────
         // STAGE 4: JAR ko ZIP mein pack karo

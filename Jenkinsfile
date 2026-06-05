@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'agent1' }
 
     tools {
         maven 'Maven3'   // Jenkins Tools mein jo naam diya tha
@@ -7,10 +7,9 @@ pipeline {
 
     environment {
         // ✏️ ye sb m apne according region change krunga 
-        
         S3_BUCKET     = 'cdk-hnb659fds-assets-678804053714-ap-south-1'
         EB_APP_NAME   = 'my-java-app'
-        EB_ENV_NAME   = 'My-java-app-env'
+        EB_ENV_NAME   = 'My-java-app-env-dev1'
         AWS_REGION    = 'ap-south-1'
 
         // Ye mat badlo — automatically set hoti hain
